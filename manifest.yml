@@ -1,8 +1,8 @@
 ---
 applications:
-- name: Maps
+- name: Dev-Maps
   memory: 128M
-  host: maps-bb
+  host: dev-maps-bb
   buildpack: staticfile_buildpack
   path: webcontent
   
