@@ -1,0 +1,8 @@
+---
+applications:
+- name: Maps
+  memory: 128M
+  host: blue-maps-bb
+  buildpack: staticfile_buildpack
+  path: webcontent
+  
