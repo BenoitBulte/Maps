@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Center Map</title>
+  </head>
+
+	<script type="text/javascript"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQDm5XwvHbycZ5AZbqGnKMo95To7G4mv8&libraries=geometry,places">
+	</script>
+
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+	<script src="data/maplace.js"></script>
+	<script src="data/locations.js"></script>
+
+	<script type="text/javascript">
+	
+	var maplace = new Maplace({
+	    map_div: "#gmap",
+	    controls_div: "#gmap-controls",
+	    controls_type: "dropdown",
+	    controls_on_map: false,
+	    controls_title: "Datacenter List:"
+	});
+	
+	function maplaceRefesh(){
+		maplace.SetLocations(eval(document.myDataCenter.DataCenter.value),1);
+	}
+
+	</script>
+
+  <body>
+
+	<FORM name="myDataCenter">
+	<INPUT type="radio" name="DataCenter" value="LocsA" onclick="maplaceRefesh();" > Amazon AWS
+	<INPUT type="radio" name="DataCenter" value="LocsG" onclick="maplaceRefesh();" > Google Cloud
+	<INPUT type="radio" name="DataCenter" value="LocsI" onclick="maplaceRefesh();" > IBM BlueMix
+	<INPUT type="radio" name="DataCenter" value="LocsM" onclick="maplaceRefesh();" > Microsoft Azure
+	<INPUT type="radio" name="DataCenter" value="LocsA.concat(LocsG).concat(LocsI).concat(LocsM)" onclick="maplaceRefesh();" > All
+	</FORM>
+	<div id="gmap-controls"></div>
+	<div id="gmap" style="width: 800px; height: 600px"></div>
+
+  </body>
+
+
+</html>
